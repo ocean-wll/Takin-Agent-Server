@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.4</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>io.shulie.takin</groupId>
+    <artifactId>Takin-agent-server</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0.0</version>
+
+    <modules>
+        <module>takin-agent-server-common</module>
+        <module>takin-agent-server-app</module>
+        <module>takin-agent-server-biz-service</module>
+        <module>takin-agent-server-bootstrap-extras</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <takin.agent.server.version>1.0.0.0</takin.agent.server.version>
+        <swagger.version>3.0.0</swagger.version>
+        <takin.common.version>common-2.0.2-SNAPSHOT</takin.common.version>
+        <takin.web.version>takin-web-5.2.0.2</takin.web.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- mybatis-plus依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.79</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.12.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.22</version>
+                <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>io.shulie.takin</groupId>
+                <artifactId>takin-common-bom</artifactId>
+                <version>${takin.common.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.shulie.takin</groupId>
+                        <artifactId>takin-common-mybatis</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.springfox</groupId>
+                        <artifactId>springfox-swagger2</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.github.xiaoymin</groupId>
+                        <artifactId>swagger-bootstrap-ui</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-annotations</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>2.12.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>5.3.0</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
